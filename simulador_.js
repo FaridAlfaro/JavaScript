@@ -9,16 +9,16 @@ function AplicarDescuento(precioFinal, descuento){
 }
 
 function CalculoCuotas(precioFinal, nCuotas){
-const cft = 0.65;
-const cuotas = (precioFinal + precioFinal * cft) / nCuotas;
-return cuotas;
+  const cft = 0.65;
+  const cuotas = (precioFinal + precioFinal * cft) / nCuotas;
+  return cuotas;
 }
 
 function Validar(seleccion, array) {
-while (seleccion < 1 || seleccion > array.length) {
-  seleccion = parseInt(prompt("Opción inválida, ingrese nuevamente"));
-}
-return seleccion;
+  while (seleccion < 1 || seleccion > array.length) {
+    seleccion = parseInt(prompt("Opción inválida, ingrese nuevamente"));
+  }
+  return seleccion;
 }
 
 let servicios = [
