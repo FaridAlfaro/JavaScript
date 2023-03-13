@@ -3,7 +3,8 @@ function AplicarDescuento(precioFinal, descuento){
     let precioConDescuento = precioFinal * descuento;
     return precioConDescuento;
   } else{
-    console.log("El descuento debe ser un numero entre 0.1 y 0.9");
+    alert("El descuento debe ser un numero entre 0.1 y 0.9");
+    AplicarDescuento (precioFinal, descuento);
   }
 }
 
@@ -14,8 +15,12 @@ function CalculoCuotas(precioFinal, nCuotas){
 }
 
 function Validar(seleccion, array) {
-  while (seleccion < 1 || seleccion > array.length) {
-    seleccion = parseInt(prompt("Opción inválida, ingrese nuevamente"));
+  if (Array.isArray(array)){
+    while (seleccion < 1 || seleccion > array.length) {
+      seleccion = parseInt(prompt("Opción inválida, ingrese nuevamente"));
+    }
+  } else {
+    alert("El valor ingresado debe ser una array")
   }
   return seleccion;
 }
@@ -47,11 +52,11 @@ let servicioSeleccionado = prompt(`Seleccione un servicio de la categoría ${cat
 let metodoDePagoSeleccionado = parseInt(prompt("Por favor seleccione un método de pago:" + "\n1 - Crédito"  + "\n2 - Débito/ transferencia bancaria" + "\n3 - Efectivo (20% off)" + "\nIngrese el número del método de pago que desea utilizar:"));
 metodoDePagoSeleccionado = Validar(metodoDePagoSeleccionado, metodosDePago);
 
-let precioFinal = serviciosFiltrados.find(servicioSeleccionado => servicioSeleccionado.precio)
+let precioFinal = serviciosFiltrados.find(servicio => servicio.nombre === servicioSeleccionado).precio;
 if (metodoDePagoSeleccionado === 3) {
   precioConDescuento = AplicarDescuento(precioFinal, 0.8); 
   alert("Ha seleccionado el método de pago " + metodosDePago[metodoDePagoSeleccionado - 1] + "\nSe ha aplicado un descuento del 20% por pago en efectivo\nEl precio final es $" + precioConDescuento);
-} else if (metodoDePagoSeleccionado == 1) {
+} else if (metodoDePagoSeleccionado === 1) {
     let nCuotas = parseInt(prompt("Ingrese un numero de cuotas 3, 6 o 12"))
     let cuotas = CalculoCuotas (precioFinal, nCuotas);
     alert("Ha seleccionado el método de pago " + metodosDePago[metodoDePagoSeleccionado - 1] + "\nSe ha aplicado el recargo correspondiente al CFT\nEl precio en " + nCuotas +" cuotas es: " + cuotas);
