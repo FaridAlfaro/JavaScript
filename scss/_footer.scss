@@ -1,0 +1,101 @@
+.footer__caption{
+    padding-bottom: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.title__footer{
+    font-size: 24px;
+    margin: 20px;
+    text-align: center;
+    color: $faradayBlue;
+}
+
+.download{
+    width: 50%;
+    margin: 0 20px;
+}
+
+.download__app{
+    display: flex;
+}
+
+.download__item{
+    display: flex;
+    padding: 18px 12px;
+    border-radius: 6px;
+    border: 1px solid cadetblue;
+    width: 42%;
+    align-items: center;
+    margin-right: 20px;
+    margin-bottom: 16px;
+}
+
+.download__logo{
+    font-size: 40px;
+    margin-right: 20px;
+}
+
+.download__title{
+    font-size: 18px;
+}
+.footer__text{
+    width: 100%;
+    color: blue;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.textrigth{
+    width: 100%;
+
+}
+
+.politica__privacidad{
+    color: black;
+    text-decoration: none;
+    display: inline-block;
+    margin: 15px;
+}
+
+.get__email{
+    width: 50%;
+}
+
+
+.socialmedia__icon{
+    font-size: 18px;
+    margin-right: 30px;
+    display: inline-block;
+}
+
+.contact{
+    display: flex;
+    width: 100vw;
+    flex-wrap: wrap;
+    color: #FFFFFF;
+}
+
+.item__contact{
+    width: 25%;
+    padding: 60px 0;
+    text-align: center;
+    background-color: $faradayBlue;
+}
+
+.item__contact__gold{
+    background-color: black;
+    color: #FFFFFF;
+}
+
+.contact__icon{
+    font-size: 24px;
+    margin: 10px;
+    color: #fafafa;
+    line-height: 20px;
+}
+
+.contact__title{
+    font-size: 16px;
+    line-height: 20px;
+}

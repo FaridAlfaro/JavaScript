@@ -1,0 +1,75 @@
+{
+    "servicios":[
+        {
+          "nombre": "Instalación domiciliaria básica",
+          "precio": 50000,
+          "categoria": "Domicilios",
+          "descripcion":"Servicio que proporciona la conexión eléctrica necesaria en una vivienda, incluyendo la instalación de interruptores, enchufes, cableado y otros elementos necesarios para hacer funcionar los electrodomésticos y dispositivos eléctricos."
+        },
+        {
+          "nombre": "Revisión por fallas o consumo excesivo",
+          "precio": 5000,
+          "categoria": "Domicilios",
+          "descripcion":"Servicio de diagnóstico y corrección de problemas eléctricos en hogares o empresas, tales como fallas en el suministro eléctrico, cortocircuitos o consumos excesivos de energía."
+        },
+        {
+          "nombre": "Estudio de factibilidad para automatizar procesos",
+          "precio": 40000,
+          "categoria": "Industrias",
+          "descripcion":"Servicio que evalúa la viabilidad y beneficios de automatizar procesos industriales, mediante la implementación de sistemas tecnológicos que permiten optimizar la producción y disminuir costos."
+        },
+        {
+          "nombre": "Iluminación de locales/discotecas",
+          "precio": 30000,
+          "categoria": "Domótica",
+          "descripcion":"Servicio de instalación y diseño de sistemas de iluminación para espacios comerciales, como bares, discotecas y tiendas, con el objetivo de crear ambientes atractivos y agradables para los clientes."
+        },
+        {
+          "nombre": "Automatización industrial de proceso conocido",
+          "precio": 150000,
+          "categoria": "Industrias",
+          "descripcion":"Servicio que automatiza procesos industriales conocidos, mediante la implementación de sistemas tecnológicos que permiten optimizar la producción y disminuir costos, aprovechando las mejores prácticas del sector."
+        },
+        {
+          "nombre": "Domótica domiciliaría",
+          "precio": 4500,
+          "categoria": "Domótica",
+          "descripcion":"Servicio de automatización y control de dispositivos eléctricos en el hogar, como iluminación, climatización, sistemas de seguridad y entretenimiento, con el objetivo de mejorar la comodidad, seguridad y eficiencia energética en el hogar."
+        },
+        {
+          "nombre": "Instalación de portones eléctricos",
+          "precio":20000,
+          "categoria":"Domótica",
+          "descripcion":"Servicio de automatización y control de dispositivos eléctricos en el hogar, como iluminación, climatización, sistemas de seguridad y entretenimiento, con el objetivo de mejorar la comodidad, seguridad y eficiencia energética en el hogar."
+        },
+        {
+            "nombre": "Instalación domiciliaria avanzada",
+            "precio": 75000,
+            "categoria": "Domicilios",
+            "descripcion":"Servicio que proporciona la conexión eléctrica necesaria en una vivienda, incluyendo la instalación de interruptores, enchufes, cableado y otros elementos necesarios para hacer funcionar los electrodomésticos y dispositivos eléctricos, además de ofrecer opciones de automatización y control remoto de los mismos."
+        },
+        {
+            "nombre": "Mantenimiento de equipos eléctricos",
+            "precio": 10000,
+            "categoria": "Domicilios",
+            "descripcion":"Servicio de revisión y mantenimiento preventivo de equipos eléctricos en hogares o empresas, tales como aires acondicionados, neveras, lavadoras, entre otros."
+        },
+        {
+            "nombre": "Control de acceso en edificios",
+            "precio": 50000,
+            "categoria": "Domótica",
+            "descripcion":"Servicio de instalación y configuración de sistemas de control de acceso para edificios, como tarjetas electrónicas o lectores de huellas, con el objetivo de mejorar la seguridad de los usuarios y el control de ingreso a las diferentes áreas."
+        },
+        {
+            "nombre": "Automatización de procesos en la nube",
+            "precio": 100000,
+            "categoria": "Industrias",
+            "descripcion":"Servicio de automatización de procesos empresariales en la nube, mediante la implementación de sistemas tecnológicos que permiten optimizar la producción y disminuir costos, y que además se integran con otras herramientas empresariales en línea para ofrecer una solución completa y eficiente."
+        }
+      ],
+    "metodosPago": [
+      "Tarjeta de crédito",
+      "Transferencia bancaria",
+      "Efectivo"
+    ]
+  }

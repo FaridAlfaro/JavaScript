@@ -1,0 +1,235 @@
+@media screen and (max-width:900px){
+    .mockup{
+        width: 600px;
+        height: auto;
+    }
+    .title{
+        font-size: 50px;
+    }
+    .text{
+        font-size: 22px;
+    }
+    .cta{
+        padding: 15px 22px;
+    }
+    .container__cards{
+        justify-content: space-evenly;
+    }
+    .services .card{
+        width: 45%;
+    }
+    .background{
+        width: 50%;
+    }
+    .card{
+        width: 40%;
+    }
+
+    .testimony__card{
+        width: 40%;
+    }
+    .testimony__container{
+        justify-content: space-evenly;
+    }
+    .chek__item{
+        width: 50%;
+        margin-bottom: 40px;
+    }
+    .newsletter{
+        width: 80%;
+    }
+    .download{
+        width: 100%;
+    }
+    .download__app{
+        justify-content: space-between;
+    }
+
+    .download__item{
+        width: 45%;
+    }
+    .get__email{
+        width: 100%;
+        margin-bottom: 50px;
+    }
+    .socialmedia__icon{
+        font-size: 20px;
+    }
+    .socialmedia__legend{
+        font-size: 20px;
+    }
+    .bx-menu .bx-window-close{
+        display: none;
+    }
+
+}
+
+@media screen and (max-width:700px){
+    .container{
+        width: 100%;
+    }
+    .nav__title{
+        font-size: 12px;
+    }
+
+    .nav__container{
+        display: flex;
+        height: 100px;
+        padding-bottom: 20px;
+        flex-wrap: nowrap;
+        flex-direction: column;
+        justify-content: space-evenly;
+    }
+    .logo__picture{
+        padding: 15px 0;
+    }
+    .nav__caja{
+        height: auto;
+    }
+    .caja__main{
+        display: flex;
+        flex-direction: column-reverse;
+        justify-content: flex-end;
+        height:calc(100vh - 140px);
+        padding: 40px 0;
+    }
+    .caja__textos{
+        margin-left: 30px;
+        width: 100%;
+        text-align: left;
+    }
+    .mockup{
+        width: 80%;
+        margin-bottom: 0;
+    }
+    .title{
+        font-size: 40px;
+        text-align: left;
+    }
+    .text{
+        text-align: left;
+        font-size: 25px;
+        width: auto;
+    }
+    .subtitle{
+        font-size: 35px;
+        text-align: center;
+    }
+    .text__section{
+        font-size: 25px;
+        text-align: center;
+    }
+    .services .card{
+        width: 80%;
+    }
+    .container__bg{
+        justify-content: space-evenly;
+        
+    }
+    .card{
+        margin-bottom: 50px;
+        width: 100%;
+    }
+    .card__title{
+        font-size: 24px;
+    }
+    .card__button{
+        width: 100%;
+    }
+    .background{
+        width: 70%;
+        margin-bottom: 50px;
+    }
+    .background__text{
+        display: none;
+    }
+    .testimony__container{
+        height:auto;
+    }
+    .testimony__position{
+        display: none;
+    }
+
+    .testimony__card{
+        width: 80%;
+        margin: 20px;
+    }
+    .testimony__name{
+        font-size: 20px;
+    }
+    .item__contact{
+        width: 100%;
+        padding: 30px;
+    }
+    .container__modifier{
+        width: 90%;
+    }
+    .download__item{
+        width: auto;
+        height: auto;
+    }
+    .projects{
+        padding: auto;
+
+    }
+    .download__app{
+        display: block;
+    }
+    .download__title{
+        margin: 0 20px;
+    }
+    #blog_pic{
+        margin: 50px;
+    }
+
+    .respmenu input[type="checkbox"], .respmenu .bx-menu, .respmenu .bx-window-close {
+        position:absolute;
+        padding-top: 15px;
+        top: 10px;
+        left: 2vh;
+        display: block;
+        width: 48px;
+        height: 48px;
+      }
+      
+      .respmenu .bx-menu, .respmenu .bx-window-close {
+        font-size: 28px;
+        pointer-events: none;
+      }
+      
+      .respmenu input[type="checkbox"] {
+        opacity: 0;
+      }
+      .caja .bx{
+        color: white;
+      }
+      .respmenu {
+        color: white;
+        position: inherit;
+        background: $faradayBlue;
+      }
+      
+      .respmenu .links__h {
+        display: none;
+      }
+      
+      .respmenu input:checked ~ .links__h {
+        display: block;
+      }
+      
+      .respmenu input:checked ~ .bx-menu {
+        display: none;
+      }
+      
+      .respmenu input:not(:checked) ~ .bx-window-close {
+        display: none;
+      }
+}
+div {
+    background-color: 23px;
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    align-items: center;
+    
+}

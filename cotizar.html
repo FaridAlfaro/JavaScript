@@ -34,21 +34,33 @@
         </nav>
     </header>
     <main>
-            <section class="projects container">
-                <h2 class="subtitle">Cotizador automático</h2>
-                <p class="text__section"></p>
+            <section class="projects">
+                <h2 class="title_cotizador">Cotizador automático</h2>
+                <p class="subtitle_cotizador">Seleccion un servicio y un metodo de pago para realizar la cotizacion automatica</p>
                 <article class="container__bg">
-                    <div class="card">
-                        <div class="cards__text">
-                             <h3 class="card__title">Servicios de cotizacion y auditoria a domicilio</h3>
-                             <select name="" id="tamanioVivienda">
-                                <option>Revision técnica</option>
-                                <option>Automatización industrial</option>
-                                <option>Domoticá domiciliaría</option>
+                    <div class="card card_cotizador">
+                        <div class="cards__text ">
+                             <h3 class="card__title card__title_mod">Seleccione un servicio</h3>
+                             <select name="" id="Categoria" class="selector">
+                                <option value="Industrias">Industrias</option>
+                                <option value="Domótica">Domótica</option>
+                                <option value="Domicilios">Domicilios</option>
                              </select>
-                             <p class="card__text">Este servicio incluye un estudio completo de auditoria y consulta para la cotización de proyectos de diferentes magnitudes, el precio es una base y esta sujeto a cambios.</p>
-                         </div>
-                     </div>
+                             <select name="" id="Servicio" class="selector">
+        
+                             </select>
+                             <div class = "card__title descripcion"  id="infoServicio"></div>
+                        </div>
+                        <div class="cards__text">
+                            <h3 class="card__title card__title_mod">Método de pago</h3>
+                            <select name="" id="MetodoPago" class="selector">
+                               
+                            </select>
+                            <div class = "card__title descripcion"  id="infoPago"></div>
+                       </div>
+                       <div class="resultado_container"><div class = "resultado"  id="resultado"></div></div>
+                       <div class="card__button" id="card__button">Cotizar</div>
+                    </div>
                 </article>
             </section>
     </main>
@@ -91,8 +103,7 @@
                     <h3 class="contact__title" >Contactanos ahora</h3>
                 </div>
             </div>
-       </div>
-                    I
+       </div>     I
     </footer>
     <script src="/simulador_.js"></script>
 </body>

@@ -1,0 +1,14 @@
+@mixin cards($W, $H, $color){
+    width: $W;
+    height: $H;
+    overflow: hidden;
+    background: $color;
+    border-radius: 10px;
+    position: relative;
+}
+@mixin cardsImg($w, $h){
+    width: $w;
+    height: $h;
+    object-fit: cover;
+    border-radius: 10px 0 0 10px;
+} 
