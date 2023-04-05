@@ -10,17 +10,17 @@ function AplicarDescuento(precioFinal, descuento) {
 
 function ValidarTarjeta(numeroTarjeta) {
   if (/^5[1-5]/.test(numeroTarjeta)) {
-    result = 'mastercard';
+    result = "mastercard";
   } else if (/^4/.test(numeroTarjeta)) {
-    result = 'visa';
+    result = "visa";
   } else {
     Swal.fire({
-      icon: 'error',
-      title: 'Tarjeta invalida',
-      text: 'Solo se aceptan Visa y Mastercard',
-      footer: '<a href="https://faradaysmart.netlify.app/ayuda">Ayuda</a>'
-    })
-    result = 'unknown';
+      icon: "error",
+      title: "Tarjeta invalida",
+      text: "Solo se aceptan Visa y Mastercard",
+      footer: '<a href="https://faradaysmart.netlify.app/ayuda">Ayuda</a>',
+    });
+    result = "unknown";
   }
   return result;
 }
@@ -43,19 +43,19 @@ tarjetaCredito.style.display = "none";
 fetch("opciones.json")
   .then((response) => response.json())
   .then((data) => {
-
     data.metodosPago.forEach((metodo) => {
       const option = document.createElement("option");
       option.text = metodo;
       metodoPagoSelect.add(option);
       categoriaSelect.addEventListener("click", () => {
-      servicioSelect.innerHTML = "";
-    data.servicios.forEach((servicio) => {
-      if (categoriaSelect.value === servicio.categoria) {
-        const option = document.createElement("option");
-        option.text = servicio.nombre;
-        servicioSelect.add(option);
-        }});
+        servicioSelect.innerHTML = "";
+        data.servicios.forEach((servicio) => {
+          if (categoriaSelect.value === servicio.categoria) {
+            const option = document.createElement("option");
+            option.text = servicio.nombre;
+            servicioSelect.add(option);
+          }
+        });
       });
     });
 
@@ -77,10 +77,10 @@ fetch("opciones.json")
         infoPagoDiv.innerHTML =
           "Se aplica un descuento del 20% por pago en efectivo";
       } else if (metodoPagoSeleccionado === "Tarjeta de crédito") {
-        
         tarjetaCredito.style.display = "";
         nCuotasPosibles.style.display = "";
-        infoPagoDiv.innerHTML = "Algunas tarjetas disponen de ahora 12 y ahora 18. Al restante se aplica el recargo correspondiente al CFT";
+        infoPagoDiv.innerHTML =
+          "Algunas tarjetas disponen de ahora 12 y ahora 18. Al restante se aplica el recargo correspondiente al CFT";
       } else {
         tarjetaCredito.style.display = "none";
         nCuotasPosibles.style.display = "none";
@@ -89,136 +89,162 @@ fetch("opciones.json")
       }
     });
     cotizarButton.addEventListener("click", () => {
-      if (servicioSelect.value == ""){
+      if (servicioSelect.value == "") {
         Swal.fire({
-          icon: 'error',
-          title: 'Oops...',
-          text: 'Debes elegir un servicio primero',
-          footer: '<a href="https://faradaysmart.netlify.app/ayuda">Ayuda</a>'
-        })
-      } else {
+          icon: "error",
+          title: "Oops...",
+          text: "Debes elegir un servicio primero",
+          footer: '<a href="https://faradaysmart.netlify.app/ayuda">Ayuda</a>',
+        });
+      } else {let timerInterval
         Swal.fire({
-          icon: 'success',
           title: 'Exelente',
-          text: 'Gracias por usar el cotizador automático',
-          footer: '<a href="https://faradaysmart.netlify.app/ayuda">Ayuda</a>'
+          html: 'Gracias por usar el cotizador automático',
+          timer: 1000,
+          timerProgressBar: true,
+          didOpen: () => {
+            Swal.showLoading()
+            const b = Swal.getHtmlContainer().querySelector('b')
+            timerInterval = setInterval(() => {
+              b.textContent = Swal.getTimerLeft()
+            }, 100)
+          },
+          willClose: () => {
+            clearInterval(timerInterval)
+          }
+        }).then((result) => {
+          /* Read more about handling dismissals below */
+          if (result.dismiss === Swal.DismissReason.timer) {
+            console.log('I was closed by the timer')
+          }
         })
         const servicioSeleccionado = servicioSelect.value;
-      const metodoPagoSeleccionado = metodoPagoSelect.value;
-      let servicioEncontrado = data.servicios.find(
-        (servicio) => servicio.nombre === servicioSeleccionado
-      );
-      let precioSeleccionado = servicioEncontrado.precio;
+        const metodoPagoSeleccionado = metodoPagoSelect.value;
+        let servicioEncontrado = data.servicios.find(
+          (servicio) => servicio.nombre === servicioSeleccionado
+        );
+        let precioSeleccionado = servicioEncontrado.precio;
 
-      const resultadoDiv = document.getElementById("resultado");
+        const resultadoDiv = document.getElementById("resultado");
 
-      if (metodoPagoSeleccionado === "Efectivo") {
-        precioSeleccionado = AplicarDescuento(precioSeleccionado, 0.8);
-        resultadoDiv.innerHTML =
-          "El precio con descuento es: $" + precioSeleccionado;
-      } else if (metodoPagoSeleccionado === "Tarjeta de crédito") {
-        nCuotas = nCuotasPosibles.value;
-        let cuotas = CalculoCuotas(precioSeleccionado, nCuotas);
-        resultadoDiv.innerHTML =
-          "El precio en " + nCuotas + " cuotas es: <br/>$" + cuotas + " por mes";
-      } else {
-        resultadoDiv.innerHTML = "El precio final es $" + precioSeleccionado;
-      }
-      }
-    });
-  });
-
-
-  const visa = document.querySelectorAll(".visa"); 
-  const mastercard = document.querySelectorAll(".mastercard");
-  for (let i = 0; i < visa.length; i++) {
-    visa[i].style.display = "none";
-  }
-  
-  for (let i = 0; i < mastercard.length; i++) {
-    mastercard[i].style.display = "none";
-  }
-  
-
-  document.querySelectorAll('.input_cart_number').forEach(function (input) {
-    input.addEventListener('keyup', function (event) {
-      var t = event.target;
-      if (t.value.length > 3) {
-        t.nextElementSibling.focus();
-      }
-      var cardNumber = '';
-      document.querySelectorAll('.input_cart_number').forEach(function (input) {
-        cardNumber += input.value + ' ';
-        if (input.value.length == 4) {
-          input.nextElementSibling.focus();
+        if (metodoPagoSeleccionado === "Efectivo") {
+          precioSeleccionado = AplicarDescuento(precioSeleccionado, 0.8);
+          resultadoDiv.innerHTML =
+            "El precio con descuento es: $" + precioSeleccionado;
+        } else if (metodoPagoSeleccionado === "Tarjeta de crédito") {
+          nCuotas = nCuotasPosibles.value;
+          let cuotas = CalculoCuotas(precioSeleccionado, nCuotas);
+          resultadoDiv.innerHTML =
+            "El precio en " +
+            nCuotas +
+            " cuotas es: <br/>$" +
+            cuotas +
+            " por mes";
+        } else {
+          resultadoDiv.innerHTML = "El precio final es $" + precioSeleccionado;
         }
-      });
-      document.querySelector('.credit_card_box .number').innerHTML = cardNumber;
+      }
     });
   });
-  
-  document.querySelector('#card_holder').addEventListener('keyup', function (event) {
+
+const visa = document.querySelectorAll(".visa");
+const mastercard = document.querySelectorAll(".mastercard");
+for (let i = 0; i < visa.length; i++) {
+  visa[i].style.display = "none";
+}
+
+for (let i = 0; i < mastercard.length; i++) {
+  mastercard[i].style.display = "none";
+}
+
+document.querySelectorAll(".input_cart_number").forEach(function (input) {
+  input.addEventListener("keyup", function (event) {
     var t = event.target;
-    document.querySelector('.credit_card_box .card_holder div').innerHTML = t.value;
+    if (t.value.length > 3) {
+      t.nextElementSibling.focus();
+    }
+    var cardNumber = "";
+    document.querySelectorAll(".input_cart_number").forEach(function (input) {
+      cardNumber += input.value + " ";
+      if (input.value.length == 4) {
+        input.nextElementSibling.focus();
+      }
+    });
+    document.querySelector(".credit_card_box .number").innerHTML = cardNumber;
   });
-  
-  document.querySelector('#card_expiration_month').addEventListener('change', function (event) {
+});
+
+document
+  .querySelector("#card_holder")
+  .addEventListener("keyup", function (event) {
+    var t = event.target;
+    document.querySelector(".credit_card_box .card_holder div").innerHTML =
+      t.value;
+  });
+
+document
+  .querySelector("#card_expiration_month")
+  .addEventListener("change", function (event) {
     var m = event.target.options.selectedIndex;
-    m = (m < 10) ? '0' + m : m;
-    var y = document.querySelector('#card_expiration_year').value.substr(2, 2);
-    document.querySelector('.card_expiration_date div').innerHTML = m + '/' + y;
+    m = m < 10 ? "0" + m : m;
+    var y = document.querySelector("#card_expiration_year").value.substr(2, 2);
+    document.querySelector(".card_expiration_date div").innerHTML = m + "/" + y;
   });
-  
-  document.querySelector('#card_expiration_year').addEventListener('change', function (event) {
-    var m = document.querySelector('#card_expiration_month').options.selectedIndex;
-    m = (m < 10) ? '0' + m : m;
+
+document
+  .querySelector("#card_expiration_year")
+  .addEventListener("change", function (event) {
+    var m = document.querySelector("#card_expiration_month").options
+      .selectedIndex;
+    m = m < 10 ? "0" + m : m;
     var y = event.target.value.substr(2, 2);
-    document.querySelector('.card_expiration_date div').innerHTML = m + '/' + y;
+    document.querySelector(".card_expiration_date div").innerHTML = m + "/" + y;
   });
-  
-  document.querySelector('#card_ccv').addEventListener('focus', function () {
-    document.querySelector('.credit_card_box').classList.add('hover');
-  });
-  
-  document.querySelector('#card_ccv').addEventListener('blur', function () {
-    document.querySelector('.credit_card_box').classList.remove('hover');
-  });
-  
-  document.querySelector('#card_ccv').addEventListener('keyup', function (event) {
-    document.querySelector('.ccv div').innerHTML = event.target.value;
-  });
-  
+
+document.querySelector("#card_ccv").addEventListener("focus", function () {
+  document.querySelector(".credit_card_box").classList.add("hover");
+});
+
+document.querySelector("#card_ccv").addEventListener("blur", function () {
+  document.querySelector(".credit_card_box").classList.remove("hover");
+});
+
+document.querySelector("#card_ccv").addEventListener("keyup", function (event) {
+  document.querySelector(".ccv div").innerHTML = event.target.value;
+});
+
+setTimeout(function () {
+  document.querySelector("#card_ccv").focus();
   setTimeout(function () {
-    document.querySelector('#card_ccv').focus();
-    setTimeout(function () {
-      document.querySelector('#card_ccv').blur();
-    }, 1000);
-  }, 500);
-  document.querySelector('#card_number').addEventListener('change', function (event) {
-    if (ValidarTarjeta(event.target.value) == 'visa'){
+    document.querySelector("#card_ccv").blur();
+  }, 1000);
+}, 500);
+document
+  .querySelector("#card_number")
+  .addEventListener("change", function (event) {
+    if (ValidarTarjeta(event.target.value) == "visa") {
       for (let i = 0; i < visa.length; i++) {
         visa[i].style.display = "";
       }
-      
+
       for (let i = 0; i < mastercard.length; i++) {
         mastercard[i].style.display = "none";
       }
-    } else if (ValidarTarjeta(event.target.value) == 'mastercard'){
+    } else if (ValidarTarjeta(event.target.value) == "mastercard") {
       for (let i = 0; i < visa.length; i++) {
         visa[i].style.display = "none";
       }
-      
+
       for (let i = 0; i < mastercard.length; i++) {
         mastercard[i].style.display = "";
       }
-    } else{
+    } else {
       for (let i = 0; i < visa.length; i++) {
         visa[i].style.display = "none";
       }
-      
+
       for (let i = 0; i < mastercard.length; i++) {
         mastercard[i].style.display = "none";
       }
-    };
+    }
   });
-  

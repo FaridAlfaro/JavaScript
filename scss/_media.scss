@@ -1,3 +1,9 @@
+@media screen and (min-width:900px){
+ .card__button{
+    margin: 4vh;
+ }
+}
+
 @media screen and (max-width:900px){
     .mockup{
         width: 600px;
@@ -11,7 +17,6 @@
     }
     .cta{
         padding: 15px 22px;
-        display: none;
     }
     .container__cards{
         justify-content: space-evenly;

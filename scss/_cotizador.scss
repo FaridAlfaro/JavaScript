@@ -18,7 +18,7 @@
     flex-direction: row;
     flex-wrap: wrap;
     display: flex;
-    justify-content: flex-end;
+    align-items: start;
 }
 
 .card__button{
@@ -34,29 +34,31 @@
 }
 .selector{
     cursor: pointer;
-    height: auto;
+    height: 50px;
     font-size: 14px;
     background-color: #FFF;
-    color: $faradayVio;
+    color: #00000090;
     font-weight: 700;
     padding: 10px;
-    border-radius: 10px;
+    border-radius: 14px;
 }
 
 .descripcion{
     text-align: left;   
 }
-.resultado_container{
-    height: auto;
-    width: auto;
-    width: auto;
-    background-color: #FFF;
-    border-radius: 10px;
-}
+
 .resultado{
-    margin: 5%;
-    font-weight: 700;
-    font-size: 18px;
-    color: $faradayBlue;
+    padding: 16px;
+    border-radius: 16px;
+    background-color: $faradayVio;
+    color: #FFF;
+    font-size: 16px;
     text-align: left;
+}
+
+.resultado_boton{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
 }

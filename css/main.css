@@ -578,7 +578,7 @@ body {
   flex-direction: row;
   flex-wrap: wrap;
   display: flex;
-  justify-content: flex-end;
+  align-items: start;
 }
 
 .card__button {
@@ -596,33 +596,33 @@ body {
 
 .selector {
   cursor: pointer;
-  height: auto;
+  height: 50px;
   font-size: 14px;
   background-color: #FFF;
-  color: #C04E99;
+  color: rgba(0, 0, 0, 0.5647058824);
   font-weight: 700;
   padding: 10px;
-  border-radius: 10px;
+  border-radius: 14px;
 }
 
 .descripcion {
   text-align: left;
 }
 
-.resultado_container {
-  height: auto;
-  width: auto;
-  width: auto;
-  background-color: #FFF;
-  border-radius: 10px;
+.resultado {
+  padding: 16px;
+  border-radius: 16px;
+  background-color: #C04E99;
+  color: #FFF;
+  font-size: 16px;
+  text-align: left;
 }
 
-.resultado {
-  margin: 5%;
-  font-weight: 700;
-  font-size: 18px;
-  color: #2DAAE1;
-  text-align: left;
+.resultado_boton {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 }
 
 .btn {
@@ -912,6 +912,11 @@ body {
   max-width: 100%;
 }
 
+@media screen and (min-width: 900px) {
+  .card__button {
+    margin: 4vh;
+  }
+}
 @media screen and (max-width: 900px) {
   .mockup {
     width: 600px;
@@ -925,7 +930,6 @@ body {
   }
   .cta {
     padding: 15px 22px;
-    display: none;
   }
   .container__cards {
     justify-content: space-evenly;
