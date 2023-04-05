@@ -1,11 +1,10 @@
 {
   "name": "preentregaalfarojs",
   "version": "1.0.0",
-  "description": "",
   "main": "simulador_.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "sass":"sass",
+    "sass": "sass",
     "sass:watch": "sass --watch scss/main.scss css/main.css"
   },
   "repository": {
@@ -20,5 +19,7 @@
   "homepage": "https://github.com/FaridAlfaro/JavaScript#readme",
   "dependencies": {
     "sass": "^1.59.3"
-  }
+  },
+  "devDependencies": {},
+  "description": ""
 }

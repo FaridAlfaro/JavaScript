@@ -68,8 +68,8 @@
         }
       ],
     "metodosPago": [
-      "Tarjeta de crédito",
       "Transferencia bancaria",
-      "Efectivo"
+      "Efectivo",
+      "Tarjeta de crédito"
     ]
   }

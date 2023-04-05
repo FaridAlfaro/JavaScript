@@ -11,6 +11,7 @@
     }
     .cta{
         padding: 15px 22px;
+        display: none;
     }
     .container__cards{
         justify-content: space-evenly;
@@ -22,7 +23,7 @@
         width: 50%;
     }
     .card{
-        width: 40%;
+        width: 100%;
     }
 
     .testimony__card{
@@ -225,11 +226,4 @@
         display: none;
       }
 }
-div {
-    background-color: 23px;
-    display: flex;
-    flex-direction: row;
-    text-align: center;
-    align-items: center;
-    
-}
+
